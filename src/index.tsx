@@ -1,2 +1,1 @@
-export * from './Thing';
-export * from './Button';
+export { Button } from './components/Button';
