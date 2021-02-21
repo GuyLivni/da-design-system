@@ -1,12 +1,14 @@
+import { ReactNode } from 'react';
 import tw, { css, styled, theme } from 'twin.macro';
 
 export interface ButtonProps {
   isPrimary?: Boolean;
   isSecondary?: Boolean;
   isSmall?: Boolean;
+  children: ReactNode;
 }
 
-const Button = styled.button(
+export const Button = styled.button(
   ({ isPrimary, isSecondary, isSmall }: ButtonProps) => [
     // The common button styles added with the tw import
     tw`text-lg px-8 py-2 rounded focus:outline-none`,
@@ -35,5 +37,3 @@ const Button = styled.button(
     `,
   ]
 );
-
-export default Button;
