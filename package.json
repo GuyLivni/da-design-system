@@ -35,8 +35,8 @@
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": [
-      "eslint --cache --fix",
-      "jest --findRelatedTests"
+      "yarn lint --cache --fix",
+      "yarn test --findRelatedTests"
     ],
     "*.{js,ts,jsx,tsx,json,md}": [
       "prettier --write"

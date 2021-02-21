@@ -6,8 +6,9 @@ import { Button } from '../src/components';
 
 describe('Button', () => {
   it('should render the button', () => {
-    const { getByRole } = render(<Button />);
+    const { getByRole } = render(<Button>Heyo</Button>);
 
+    expect(getByRole('button')).toHaveTextContent('Heyo');
     expect(getByRole('button')).toBeInTheDocument();
   });
 });
