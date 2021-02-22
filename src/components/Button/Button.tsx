@@ -1,15 +1,14 @@
-import { ReactNode } from 'react';
+import React, { FC, ReactNode, ButtonHTMLAttributes } from 'react';
 import tw, { css, styled, theme } from 'twin.macro';
 
-export interface ButtonProps {
-  isPrimary?: Boolean;
-  isSecondary?: Boolean;
-  isSmall?: Boolean;
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary';
+  size?: 'small' | 'large';
   children: ReactNode;
 }
 
-export const Button = styled.button(
-  ({ isPrimary, isSecondary, isSmall }: ButtonProps) => [
+const StyledButton = styled.button(
+  ({ variant = 'primary', size = 'large', disabled }: ButtonProps) => [
     // The common button styles added with the tw import
     tw`text-lg px-8 py-2 rounded focus:outline-none`,
     tw`transform transition-transform duration-75`,
@@ -18,18 +17,20 @@ export const Button = styled.button(
     tw`hocus:(scale-105 text-yellow-400)`,
 
     // Use props to conditionally style your components
-    isPrimary && tw`bg-black text-white border-black`,
+    variant === 'primary' && tw`bg-black text-white border-black`,
 
     // Combine regular css with tailwind classes within backticks
-    isSecondary && [
+    variant === 'secondary' && [
       css`
         box-shadow: 0 0.1em 0 0 rgba(0, 0, 0, 0.25);
       `,
       tw`border-2 border-yellow-600`,
     ],
 
+    disabled && tw`disabled:opacity-50`,
+
     // Conditional props can be added
-    isSmall ? tw`text-sm` : tw`text-lg`,
+    size === 'small' ? tw`text-sm` : tw`text-lg`,
 
     // The theme import can supply values from your tailwind.config.js
     css`
@@ -37,3 +38,7 @@ export const Button = styled.button(
     `,
   ]
 );
+
+export const Button: FC<ButtonProps> = ({ children, ...props }) => {
+  return <StyledButton {...props}>{children}</StyledButton>;
+};
