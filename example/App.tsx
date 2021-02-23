@@ -2,13 +2,11 @@ import * as React from 'react';
 import { Button } from '../.';
 
 const App = () => (
-  <div>
-    <div>
-      <Button isPrimary>Submit</Button>
-      <Button isSecondary>Cancel</Button>
-      <Button isSmall>Close</Button>
-    </div>
-  </div>
+  <>
+    <Button variant="primary">I do nothing</Button>
+    <Button variant="secondary">I do nothing</Button>
+    <Button variant="text">I do nothing</Button>
+  </>
 );
 
 export default App;

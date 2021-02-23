@@ -1,0 +1,29 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Advanced/Theme" />
+
+# Theming
+
+## Configuring the theme
+
+Theming is built in using [Styled-components](https://github.com/styled-components/styled-components).
+You need to make the theme available to the components by wrapping your application in a `ThemeProvider`:
+
+```jsx
+import { ThemeProvider } from 'styled-components';
+import { Button, mainTheme } from 'da-design-system';
+
+export default function App() {
+  return (
+    <ThemeProvider theme={mainTheme}>
+      <Button variant="primary">I am just a button!</Button>
+    </ThemeProvider>
+  );
+}
+```
+
+Da-design-system is using [tailwindcss](https://tailwindcss.com/) as it's default theme.
+The `main` theme provided includes [tailwindcss default theme](https://tailwindcss.com/docs/theme) and some additional custom tokens.
+
+## Custom theme
+To add a new custom theme check the `main` theme as reference under `src/theme/main`

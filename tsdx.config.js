@@ -2,7 +2,6 @@ const babel = require('rollup-plugin-babel');
 const commonjs = require('rollup-plugin-commonjs');
 const peerDepsExternal = require('rollup-plugin-peer-deps-external');
 const resolve = require('rollup-plugin-node-resolve');
-// const pkg = require('./package.json');
 
 const twindConfig = {
   name: 'Da-design-system',

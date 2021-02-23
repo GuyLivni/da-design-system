@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 
+import { render } from '../../util/testUtils';
 import { Button } from './Button';
 
 describe('Button', () => {
   it('should render the button', () => {
-    const { getByRole } = render(<Button>Heyo</Button>);
+    const text = 'Heyo';
+    const { getByRole } = render(<Button>{text}</Button>);
 
-    expect(getByRole('button')).toHaveTextContent('Heyo');
+    expect(getByRole('button')).toHaveTextContent(text);
     expect(getByRole('button')).toBeInTheDocument();
   });
 });

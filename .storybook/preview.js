@@ -1,10 +1,25 @@
-// https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from 'twin.macro';
+import { mainTheme } from '../src';
+
 export const parameters = {
-  // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
+  layout: 'centered',
   actions: { argTypesRegex: '^on.*' },
   options: {
     storySort: {
-      order: ['Introduction', 'Components'],
+      order: ['Introduction', 'Advanced', 'Components'],
     },
   },
 };
+
+const withThemeProvider = (Story) => (
+  <ThemeProvider theme={mainTheme}>
+    <GlobalStyles />
+    <Story />
+  </ThemeProvider>
+);
+
+export const decorators = [
+  withThemeProvider,
+];
