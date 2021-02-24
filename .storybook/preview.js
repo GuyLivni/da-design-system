@@ -8,7 +8,7 @@ export const parameters = {
   actions: { argTypesRegex: '^on.*' },
   options: {
     storySort: {
-      order: ['Introduction', 'Advanced', 'Components'],
+      order: ['Introduction', 'Components', 'Theme', ['Intro', 'Colors']],
     },
   },
 };
@@ -20,6 +20,4 @@ const withThemeProvider = (Story) => (
   </ThemeProvider>
 );
 
-export const decorators = [
-  withThemeProvider,
-];
+export const decorators = [withThemeProvider];

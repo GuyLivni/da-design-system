@@ -23,22 +23,22 @@ const StyledButton = styled.button(
     variant === 'primary' && [
       css`
         color: ${theme.colors.white};
-        border: 1px solid ${theme.colors.primary};
-        background-color: ${theme.colors.primary};
+        border: 1px solid ${theme.colors.primary[50]};
+        background-color: ${theme.colors.primary[50]};
       `,
     ],
 
     variant === 'secondary' && [
       css`
-        color: ${theme.colors.primary};
-        border: 1px solid ${theme.colors.primary};
+        color: ${theme.colors.primary[50]};
+        border: 1px solid ${theme.colors.primary[50]};
         background-color: ${theme.colors.transparent};
       `,
     ],
 
     variant === 'text' && [
       css`
-        color: ${theme.colors.primary};
+        color: ${theme.colors.primary[50]};
         border: none;
         background-color: ${theme.colors.transparent};
       `,
